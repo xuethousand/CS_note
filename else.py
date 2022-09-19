@@ -127,3 +127,7 @@ def who_win(n):
 who_win(20)
 who_win(0)
 
+
+
+
+''' iteration is a special case of recursion.(从数学角度理解。反之也成立？）'''

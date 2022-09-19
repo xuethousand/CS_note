@@ -146,3 +146,33 @@ def print_sums(n):
     def next_sum(k):
         return print_sums(n+k)
     return next_sum
+
+
+
+
+
+
+'''
+return 0 的必要性
+'''
+def all_nums(k,prefix=None):
+    '''output all the binary number with k bits,prefix = None'''
+    if(k == 0):
+        print(prefix)
+        return   #return nothing
+    if(prefix == None):
+        return (all_nums(k-1,0),all_nums(k-1,1))
+    return (all_nums(k-1,prefix*10),all_nums(k-1,prefix*10+1))
+
+def all_nums1(k,prefix=None):
+    '''output all the binary number with k bits,prefix = None'''
+    if(k == 0):
+        print(prefix)
+        return 0   #return 0
+    if(prefix == None):
+        return (all_nums1(k-1,0),all_nums1(k-1,1))
+    return (all_nums1(k-1,prefix*10),all_nums1(k-1,prefix*10+1))
+
+#python -i xxx.py
+all_nums(2) #出错
+all_nums(2) #正常

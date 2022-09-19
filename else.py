@@ -131,3 +131,18 @@ who_win(0)
 
 
 ''' iteration is a special case of recursion.(从数学角度理解。反之也成立？）'''
+
+
+
+
+
+
+
+
+'''Self-referencing functions will oftentimes employ helper functions that refer-
+ence the outer function, such as the example to the right, print sums.'''
+def print_sums(n):
+    print(n)
+    def next_sum(k):
+        return print_sums(n+k)
+    return next_sum

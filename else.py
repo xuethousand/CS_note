@@ -51,3 +51,24 @@ def composite_identity(f, g):
         else:
             return False
     return func
+
+
+
+
+
+
+
+
+
+
+
+
+
+''' recursive function key points: 
+有base case；
+递归能在有限步终止，ie 每次能化简为一个更简单的情况。eg，棋盘跳马问题；
+The base cases are then followed by one or more recursive calls. 函数体内可以有多个recursive calls
+'''
+
+
+

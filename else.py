@@ -72,3 +72,58 @@ The base cases are then followed by one or more recursive calls. 函数体内可
 
 
 
+
+
+
+'''
+As another example of mutual recursion, consider a two-player game in which there are n initial pebbles 
+on a table. The players take turns, removing either one or two pebbles from the table, and the player who
+ removes the final pebble wins. Suppose that Alice and Bob play this game, each using a simple strategy:
+1. Alice always removes a single pebble
+2. Bob removes two pebbles if an even number of pebbles is on the table, and one otherwise
+'''
+#显然是法一更好，利用mutual内在的逻辑，减少了控制循环的语句使用
+#法1，用mutual recursion
+def play_alice(n):
+        if n == 0:
+            print("Bob wins!")
+        else:
+            play_bob(n-1)
+            
+def play_bob(n):
+        if n == 0:
+            print("Alice wins!")
+        elif n%2 == 0:
+            play_alice(n-2)
+        else:
+            play_alice(n-1)
+play_alice(20)
+
+
+
+#法2：我脑海中的initial idea
+def alice(n):
+    return 1
+
+def bob(n):
+    if n%2 == 0:
+        return 2
+    else:
+        return 1
+
+def who_win(n):
+    assert n != 0, "初始不能是0个pebble"
+    while(True):
+        #alice
+        n -= alice(n)
+        if(n == 0):
+            print('Alice wins!')
+            return 0
+        n -= bob(n)
+        if(n == 0):
+            print('Bob wins!')
+            return 0
+
+who_win(20)
+who_win(0)
+

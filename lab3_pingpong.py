@@ -29,7 +29,7 @@ def pingpong(n):
 
         
        
-#助教的做法
+#助教的做法，通过记录direction，缩短用时（helper function）
 def pingpong(n):
     """Return the nth element of the ping-pong sequence.
 
@@ -53,3 +53,20 @@ def pingpong(n):
         return pingpong_helper(value_change(value,direction),index+1,direction_change(index+1,direction))
 
     return pingpong_helper(1,1,True)
+
+
+
+
+#我引入direction后的做法：基本思想是，如果知道n-1的value和direction的话，可以推算出n的value和direction。
+#助教用到了helper function，好像不太自然，如果允许赋值语句的话，可以这么写
+def pingpong(n):
+    """Return the nth element of the ping-pong sequence."""
+
+    def pingpong_helper(index): #return value & direction
+        if index == 1:
+            return (1,True)
+        else:
+            value_before, direction_before = pingpong_helper(index-1)
+            return (value_change(value_before,direction_before),direction_change(index,direction_before))
+    value,direction = pingpong_helper(n)
+    return value

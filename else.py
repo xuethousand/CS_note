@@ -188,3 +188,4 @@ all_nums(2) #正常
 #Is there any way to make an anonymous function call itself?
 #Y-combinator, Y组合子
 #待看
+# lambda calculus

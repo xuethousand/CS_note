@@ -176,3 +176,15 @@ def all_nums1(k,prefix=None):
 #python -i xxx.py
 all_nums(2) #出错
 all_nums(2) #正常
+
+
+
+
+
+'''
+ HW3: Anonymous factorial
+ '''
+#如何实现一个匿名递归函数？
+#Is there any way to make an anonymous function call itself?
+#Y-combinator, Y组合子
+#待看

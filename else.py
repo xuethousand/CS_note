@@ -211,3 +211,20 @@ print(a)
 a[2][0] = -1
 print(a)
 print(t) #t改变了？！
+
+
+
+
+
+#UnboundLocalError: local variable 'f' referenced before assignment
+#在g中定义了f function，python在编译时，知道这个local frame里有这个f(x),因此，它不会到global frame里去找。
+#在运行y = f(x)时，它需要用到g(x)中的f(x)，但这个函数仍未定义，因此python会报错
+def f(x):
+    return x ** 2
+def g(x):
+    y = f(x)
+    def f():
+        return y + x
+    return f
+
+g(2)

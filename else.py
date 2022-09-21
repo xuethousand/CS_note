@@ -189,3 +189,15 @@ all_nums(2) #正常
 #Y-combinator, Y组合子
 #待看
 # lambda calculus
+
+
+
+''' 
+python 中清屏:
+import os
+os.system('cls||clear')
+
+powershell 中清屏：
+ctrl+L
+'''
+

@@ -226,5 +226,11 @@ def g(x):
     def f():
         return y + x
     return f
-
 g(2)
+
+#想想下面这个正常运行的情况，就能理解了
+def f(x):
+    return g(x)
+def g(x):
+    return x
+f(1)

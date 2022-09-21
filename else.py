@@ -201,3 +201,13 @@ powershell 中清屏：
 ctrl+L
 '''
 
+
+
+''' linked list'''
+s = [2,3]
+t = [5,6]
+a = s + [t] #[t]: a list containing t, the content of [t] is a reference to the list t.
+print(a)
+a[2][0] = -1
+print(a)
+print(t) #t改变了？！

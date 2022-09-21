@@ -234,3 +234,21 @@ def f(x):
 def g(x):
     return x
 f(1)
+
+
+
+
+
+
+
+
+
+
+
+''' something about list'''
+a = list(range(1,10)) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# a[start index:end index:step],其中end index是不包含的
+a[0:9:2] #[1, 3, 5, 7, 9]
+a[0:8:2] #[1, 3, 5, 7]
+a[::-1] #[9, 8, 7, 6, 5, 4, 3, 2, 1]
+a[:]  #creates a list that is identical to list a

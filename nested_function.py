@@ -69,6 +69,10 @@ To fix this, you have two options:
 1) Rather than reassigning [var] to its new value, create a new variable to hold that new value. Use that new variable in future calculations.
 
 2) For this problem specifically, avoid this issue entirely by not using assignment statements at all. Instead, pass new values in as arguments to a call to announce_highest.
+
+Python also has an unusual restriction regarding the lookup of names: withinthe body of a function, all instances of a name must refer to the same frame.
+As a result, Python cannot look up the value of a name in a non-local frame, then bind that same name in the local frame, because the same name would be accessed in two different frames in the same function.
+
 '''
 
 

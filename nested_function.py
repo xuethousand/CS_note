@@ -34,6 +34,31 @@ a = a() #a: step = 1时的step_function
 a = a()
 
 
+
+
+#法3，定义nonlocal variable.
+def f(step):
+    def step_function():
+        nonlocal step 
+        '''After executing nonlocal step, any
+assignment statement with step on the left-hand side of = will not
+bind step in the first frame of the current environment. Instead, it
+will find the first frame in which step was already defined and re-bind
+the name in that frame. If step has not previously been bound to a
+value, then the nonlocal statement will give an error.'''
+        make_use_step(step)
+        step += 1
+        return f(step)
+    return step_function
+
+a = f(0) #a: step = 0时的step_function
+a = a() #a: step = 1时的step_function
+a = a()
+
+
+
+
+
 '''
 Hint. If you're getting a local variable [var] reference before assignment error:
 
@@ -45,3 +70,7 @@ To fix this, you have two options:
 
 2) For this problem specifically, avoid this issue entirely by not using assignment statements at all. Instead, pass new values in as arguments to a call to announce_highest.
 '''
+
+
+
+

@@ -1,4 +1,4 @@
-#全局变量与局部变量
+#全局变量与局部变量 see http://composingprograms.com/pages/24-mutable-data.html#local-state for more information
 #若一个变量step，它只在某个函数step_function中被应用。但每次它被该函数应用时，都有可能改变该变量的状态。这种情况该怎么处理呢？
 
 #法1，将该变量定义为global variable

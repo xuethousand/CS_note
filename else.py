@@ -260,11 +260,11 @@ a[:]  #creates a list that is identical to list a
 '''mutable data'''
 a = []
 b1 = a # b1,a同时指向列表[]
-b1 += [1]  #列表[]变为[1]
+b1 += [1]  #列表[]变为[1]，change local bindings
 print('a: ', a) #a: [1],也改变了！
 
 
 a = []
 b2 = a # b2,a同时指向列表[]
-b2 = b2 + [1]  # b2 指向列表[1], 但a仍然指向的是[]
+b2 = b2 + [1]  # b2 指向列表[1], 但a仍然指向的是[]，re-bound existing names
 print('a: ', a) # a:[]，a没有改变！

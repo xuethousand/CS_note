@@ -3,15 +3,28 @@
 
 # 法1: 将该balance定义为global variable
 # 这样做的坏处是，定义为全局变量减少了封装性
+'''
 balance = 20 #初始化
 
 def withdraw(amount):
-    balance -= amount
+    balance -= amount #报错，因为改变了全局变量的值
     return 
 
 withdraw(10)
 withdraw(5)
 balance
+'''
+balance = [20] #初始化
+
+def withdraw(amount):
+    balance[0] -= amount #将balance的数据类型改成list(mutable)，即可。balance指向的list（地址）并没有改变，只是list中第一个元素的值发生了改变
+    return 
+
+withdraw(10)
+withdraw(5)
+balance[0]
+
+
 
 
 # 法2: Higher-order function

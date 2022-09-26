@@ -268,3 +268,20 @@ a = []
 b2 = a # b2,a同时指向列表[]
 b2 = b2 + [1]  # b2 指向列表[1], 但a仍然指向的是[]，re-bound existing names
 print('a: ', a) # a:[]，a没有改变！
+
+
+
+
+
+
+
+
+# tuples is unmutable. However, you can "change" it in some sense.
+a = (3,4)
+a[1] = 5 #error
+
+a = (3,[4])
+a[1][0] = 5
+a
+
+

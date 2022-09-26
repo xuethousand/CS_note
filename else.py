@@ -277,6 +277,7 @@ print('a: ', a) # a:[]，a没有改变！
 
 
 # tuples is unmutable. However, you can "change" it in some sense.
+# An immtable sequence may still change if it contains a mutable value as an element
 a = (3,4)
 a[1] = 5 #error
 

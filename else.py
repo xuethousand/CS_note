@@ -320,3 +320,28 @@ f() #1
 f() #2
 f() #3
 
+
+
+
+
+
+
+
+
+
+r = range(3,6)
+ri = iter(r)
+
+
+for i in ri:
+    print(i) #print 3,4,5
+for i in ri: # a consequence of using an iterator in a for statement. 
+    print(i) #print nothing
+
+
+for i in ri:
+    print(i) #print 3,4,5
+for i in ri: # using iterable value.
+    print(i) #print 3,4,5 again.
+
+

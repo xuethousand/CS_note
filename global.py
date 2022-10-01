@@ -55,3 +55,21 @@ def make_guess_nonlocal(n):
             num_incorrect += 1
             return new_guess
     return new_guess
+   
+   
+   
+   
+def make_guess_class(n):
+    def new_guess(x):
+        if x == n:
+            return new_guess.num_incorrect
+        else:
+            new_guess.num_incorrect += 1
+            return new_guess
+    new_guess.num_incorrect = 0
+    return new_guess
+
+guesser = make_guess_class(10)  
+guess1 = guesser(6)
+guess2 = guess1(7)
+guess2.num_incorrect

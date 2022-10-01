@@ -65,7 +65,13 @@ four = link(1, link(2, link(3, link(4, empty)))) # 相当于four = [1, 2, 3, 4]
 len_link(four) #len(four) = 4
 getitem_link(four, 1) #four[1]
 
-
+#例子
+b = [1]
+b.append(b)
+b # [1, [...]]
+is_link(b) #RecursionError: maximum recursion depth exceeded in comparison
+#question: lst = [1,lst], 那么lst是一个linked list吗？
+#按照定义，lst is a linked list iff lst( the rest of the list) is a linked list. (这似乎陷入了某种循环的怪圈)
 
 
 #########################################################

@@ -359,3 +359,31 @@ x = [200, 300]
 x.extend(x) 
 x #[200, 300, 200, 300]
 
+
+
+
+
+
+
+# 计算fib()被运行了几次
+def fib(n):
+    if n == 0 or n == 1:
+        return n
+    else:
+        return fib(n-2)+fib(n-1)
+
+def count(f):
+    def counted(n):
+        counted.call_count += 1
+        return f(n)
+    counted.call_count = 0
+    return counted
+
+fib = count(fib)
+fib(2)
+fib.call_count
+
+# 可以在tutor上运行看看。
+# 1. counted is a function, also an instance of class ‘function’. The class ‘function’ has been defined by python already. So we can use counted.call_count
+# 2. Yes, the fib(n-2) points to the new fib (counted). 
+# The name f has been bound to the original fib function, while the name fib has been bound to counted, “fib=count(fib)”. So, "return f(*args)" calls original fib funcion, and the original fib function calls fib(n-1) and fib(n-2), but the name fib no longer bound to the original fib function, then we are actually calling counted(n-1) and counted(n-2).

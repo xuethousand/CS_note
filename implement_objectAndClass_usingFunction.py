@@ -72,6 +72,7 @@ b # [1, [...]]
 is_link(b) #RecursionError: maximum recursion depth exceeded in comparison
 #question: lst = [1,lst], 那么lst是一个linked list吗？
 #按照定义，lst is a linked list iff lst( the rest of the list) is a linked list. (这似乎陷入了某种循环的怪圈)
+# 但实际中，这种情况不会出现，因为link()无法构造出这样的b.
 
 
 #########################################################

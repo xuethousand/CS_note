@@ -345,3 +345,17 @@ for i in ri: # using iterable value.
     print(i) #print 3,4,5 again.
 
 
+    
+    
+    
+    
+    
+    
+# append 和 extend 的区别
+x = [200, 300]
+x.append(x)
+x #[200, 300, [...]]
+x = [200, 300]
+x.extend(x) 
+x #[200, 300, 200, 300]
+

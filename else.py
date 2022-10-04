@@ -387,3 +387,39 @@ fib.call_count
 # 1. counted is a function, also an instance of class ‘function’. The class ‘function’ has been defined by python already. So we can use counted.call_count
 # 2. Yes, the fib(n-2) points to the new fib (counted). 
 # The name f has been bound to the original fib function, while the name fib has been bound to counted, “fib=count(fib)”. So, "return f(*args)" calls original fib funcion, and the original fib function calls fib(n-1) and fib(n-2), but the name fib no longer bound to the original fib function, then we are actually calling counted(n-1) and counted(n-2).
+
+
+
+
+
+
+
+
+# something about repr, str
+class Bear:
+    def __init__(self):
+        self.__repr__ = lambda : 'self.repr'
+        self.__str__ = lambda : 'self.str'
+    def __repr__(self):
+        return 'class.repr' # an error, considering eval(repr(Bear())) should be Bear(), here should return Bear() instead of 'class.repr'
+    def __str__(self):
+        return 'class.str'
+
+oski = Bear() 
+print(oski)     #class.str
+print(str(oski))    #class.str
+print(repr(oski))   #class.repr
+print(oski.__str__()) #self.str
+print(oski.__repr__()) #self.repr
+
+
+#事实上，python中的str, repr函数是这样的：
+def repr(x):
+    return type(x).__repr__(x) #返回x所属class中的__repr__
+
+def str(x):
+    t = type(x)
+    if hasattr(t, '__str__'): 
+        return t.__str__(x) #若x所属class中有__str__, 返回该函数
+    else:
+        return repr(x) #若x所属class中没有__str__, 返回class中的__repr__

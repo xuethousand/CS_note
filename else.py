@@ -423,3 +423,54 @@ def str(x):
         return t.__str__(x) #若x所属class中有__str__, 返回该函数
     else:
         return repr(x) #若x所属class中没有__str__, 返回class中的__repr__
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
+#If you iterate over a list, but change the contents of that list at the same time, 
+# you may not visit all the elements. 
+# This can be prevented by making a copy of the list.
+# You can either use a list slice, or use the built-in list function.
+lst = [1,2,3,4] # a list slice
+lst[:] #[1, 2, 3, 4]
+list(lst) #[1, 2, 3, 4], the built-in list function
+lst[:] is not lst and list(lst) is not lst #True
+
+
+
+
+# 下面请看一个例子
+a = [1]
+b = [2,3]
+lst = [a, b]
+
+for i in range(len(lst)):
+    if lst[i] == [1]: # cause error
+        del lst[i] 
+
+
+# 可以做如下修改
+a = [1]
+b = [2,3]
+lst = [a, b]
+lst_copy = lst[:]
+for i in range(len(lst_copy)):
+    if lst_copy[i] == [1]:
+        del lst[i]
+
+
+# Notice: del lst[i] 这样的修改不会影响lst_copy, 但看下面的例子
+a = [1]
+b = [2,3]
+lst = [a, b]
+lst_copy = lst[:]
+lst[0].pop()
+lst_copy # changed!

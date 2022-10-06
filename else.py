@@ -474,3 +474,35 @@ lst = [a, b]
 lst_copy = lst[:]
 lst[0].pop()
 lst_copy # changed!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 在class外定义属于class的函数
+class X: 
+    def func1(self,x):
+        return x**2
+
+x = X()
+x.func1(2)
+#我们想要修改instance x的func1, 让它返回x**3, how to do it?
+def func2(x): return x ** 3
+x.func1 = func2
+print(x.func1(2)) # prints 8
+
+#如果要修改class X的func1呢？
+def func2(self,x): return x ** 3
+X.func1 = func2
+x.func1(2) #print 8!

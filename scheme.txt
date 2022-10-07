@@ -1,0 +1,13 @@
+(cons 1 2)  # pairs, 显示为(1 . 2)
+(cons 1 (cons 2 nil))  #scheme 当中的list，即nest list，显示为(1 2)
+(list 1 2) #与上行代码等价
+
+#symbolic programming
+(define a 1)
+(define b 2)
+(list a b) #get (1 2)
+(list 'a 'b) # get (a b),其中a，b是symbol，而不是character, symbol can be evaluated. see example below
+(cdr '(a b c))   #get (b c)
+
+(define func 1)
+(eval 'func) #you get 1

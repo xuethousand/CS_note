@@ -31,3 +31,7 @@
 
 
 # 我们implement的scheme interpreter中，没有专用的循环syntax。我们用递归函数实现循环的功能。但是，递归占用的空间（On）可能比一般的while、for循环占用的空间（O1）要多，因此我们用到尾递归（tail recursion）
+#The return value of the tail call is the return value of the current procedure call .
+# Therefore, tail calls shouldn't increase the environment size
+
+

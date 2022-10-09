@@ -16,3 +16,6 @@
 #The quote special form takes in a single operand. It returns this operand
 # exactly as is, without evaluating it. Note that this special form can be used
 # to return any value, not just a list.
+(car '(1 2)) #不会报错，因为有了single quote，(1 2)不会被evaluate
+(car (1 2)) #会报错，这是一个call expression，operand需要被evaluate，而(1 2)被evaluate的话会报错
+(car (list 1 2)) #不会报错，(list 1 2)被evaluate后得到(1 2), 其第一个元素是1

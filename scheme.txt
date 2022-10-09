@@ -19,3 +19,15 @@
 (car '(1 2)) #不会报错，因为有了single quote，(1 2)不会被evaluate
 (car (1 2)) #会报错，这是一个call expression，operand需要被evaluate，而(1 2)被evaluate的话会报错
 (car (list 1 2)) #不会报错，(list 1 2)被evaluate后得到(1 2), 其第一个元素是1
+
+
+
+
+
+
+
+
+
+
+
+# 我们implement的scheme interpreter中，没有专用的循环syntax。我们用递归函数实现循环的功能。但是，递归占用的空间（On）可能比一般的while、for循环占用的空间（O1）要多，因此我们用到尾递归（tail recursion）

@@ -12,6 +12,7 @@
 (define func 1)
 (eval 'func) #you get 1
 (list? '(1 2)) # you get true!
+(equal? '(1 2) (list 1 2))   #这两个list的内容相同
 #The quote special form takes in a single operand. It returns this operand
 # exactly as is, without evaluating it. Note that this special form can be used
 # to return any value, not just a list.

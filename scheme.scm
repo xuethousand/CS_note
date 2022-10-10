@@ -91,3 +91,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+;利用macro定义for循环语句
+(define (map fn vals)
+	(if (null? vals)
+		()
+		(cons (fn (car vals)) (map fn (cdr vals)))))
+
+(map (lambda (x) (* x x)) '(2 3 4 5))
+
+(define-macro (for sym vals expr) ;法1
+	(list 'map (list 'lambda (list sym) expr) vals))
+
+(define-macro (for sym vals expr) ;法2
+	`(map (lambda (,sym) ,expr) ,vals) ; 等价于'(map (lambda (x) (* x x)) '(1 2 3))
+)
+
+(for x '(1 2 3) (* x x))
+
+

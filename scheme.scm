@@ -75,7 +75,14 @@
 
 ;macros allow you to extend that inventory by inventing new kinds of special forms. That means we can change 
 ;the way the language works. Inventing new ways in which the flow of evaluation proceeds though a program.
+;理解下面代码中eval的过程
+(define (twice expr)  (list 'begin expr expr) )
+(twice (print 2)) ;(print 2)作为operand,被evaluate
+(eval (twice '(print 2))) 
 
+(define-macro (twice expr) (list 'begine expr expr))
+(twice (print 2)) ; scheme evaluate operator 'twice',发现它是一个macro函数，于是它不evaluate operand，
+;(twice (print 2)) 得到的返回值是(begin (print 2)  (print 2)),返回值被evaluate，打印两个2
 
 
 

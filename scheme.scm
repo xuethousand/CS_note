@@ -96,6 +96,15 @@
 ;• return the expression from the procedure
 
 
+;We evaluated lambda procedures in the following way:
+;1. Evaluate operator
+;2. Evaluate operands
+;3. Apply operator to operands, evaluating the body of the procedure
+;However, the rules for evaluating calls to macro procedures are:
+;1. Evaluate operator
+;2. Apply operator to unevaluated operands
+;3. Evaluate the expression returned by the macro in the frame it was called in.
+
 
 
 

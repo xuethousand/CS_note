@@ -65,3 +65,21 @@
         sofar
         (factorial_tail2_helper (+ m 1) (* (+ m 1) sofar))))
   (factorial_tail2_helper 1 1))
+
+
+
+
+
+
+
+
+;macros allow you to extend that inventory by inventing new kinds of special forms. That means we can change 
+;the way the language works. Inventing new ways in which the flow of evaluation proceeds though a program.
+
+
+
+
+
+
+
+

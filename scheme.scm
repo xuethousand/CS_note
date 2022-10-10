@@ -85,8 +85,15 @@
 (twice (print 2)) ; scheme evaluate operator 'twice',发现它是一个macro函数，于是它不evaluate operand，
 ;(twice (print 2)) 得到的返回值是(begin (print 2)  (print 2)),返回值被evaluate，打印两个2
 
+;Evaluation procedure of a macro call expression: 
+;• Evaluate the operator sub-expression, which evaluates to a macro 
+;• Call the macro procedure on the operand expressions without evaluating them first 
+;• Evaluate the expression returned from the macro procedure
 
-
+;Evaluation procedure of a normal call expression(same in Python): 
+;• Evaluate the operator and operand. 
+;• Call the procedure on the operand expressions after evaluating them  
+;• return the expression from the procedure
 
 
 
